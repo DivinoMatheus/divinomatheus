@@ -5,3 +5,5 @@
 - Execute o `DivinoMatheusApplication.java`
 - A aplicação estará disponível em: http://localhost:8080/swagger-ui.html
 
+## Diagrama de classes
+![alt text](./arquitetura-java.svg)
