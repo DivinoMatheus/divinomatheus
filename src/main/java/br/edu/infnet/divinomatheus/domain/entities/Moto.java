@@ -1,4 +1,4 @@
-package br.edu.infnet.divinomatheus.model.domain;
+package br.edu.infnet.divinomatheus.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;

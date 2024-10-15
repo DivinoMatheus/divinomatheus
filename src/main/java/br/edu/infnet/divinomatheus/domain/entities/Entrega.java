@@ -1,4 +1,4 @@
-package br.edu.infnet.divinomatheus.model.domain;
+package br.edu.infnet.divinomatheus.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,9 +8,9 @@ import java.util.Date;
 @Getter
 @Setter
 public class Entrega {
-    private Recebedor recebedor;
-    private Remetente remetente;
-    private Produto produto;
+    private Cliente recebedor;
+    private Cliente remetente;
+    private Pacote pacote;
     private Motorista motorista;
     private float precoTotal;
     private float precoLiquido;
