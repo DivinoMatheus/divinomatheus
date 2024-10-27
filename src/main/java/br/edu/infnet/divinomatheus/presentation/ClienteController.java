@@ -10,7 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController()
-@RequestMapping("clientes")
+@RequestMapping("usuarios/clientes")
 public class ClienteController {
     @Autowired
     private ClienteUseCase clienteUseCase;
@@ -18,23 +18,5 @@ public class ClienteController {
     @PostMapping()
     public void cadastraCliente(@RequestBody Cliente cliente) {
         clienteUseCase.cadastra(cliente);
-    }
-
-    @GetMapping("/{cpf}")
-    public Cliente buscaClientePorCpf(@PathVariable String cpf) {
-        var cliente = clienteUseCase.buscaPorCpf(cpf);
-
-        if (cliente == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado");
-        }
-
-        return cliente;
-    }
-
-    @GetMapping()
-    public List<Cliente> listaClientes() {
-        var clientes = clienteUseCase.listaClientes();
-
-        return clientes;
     }
 }

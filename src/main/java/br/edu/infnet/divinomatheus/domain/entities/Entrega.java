@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import java.util.Date;
 
+// @Entity
+// @Table(name = "entregas")
 @Getter
 @Setter
 public class Entrega {

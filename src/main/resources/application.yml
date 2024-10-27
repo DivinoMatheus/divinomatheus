@@ -2,7 +2,12 @@ spring:
   application:
     name: divinomatheus
   datasource:
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: org.h2.Driver
     username: user
     password: password
-    url: jdbc:postgresql://localhost:5432/deliveries-db
+    url: jdbc:h2:mem:deliveries-db
+  jpa:
+    hibernate:
+      ddl-auto: create
+  h2:
+    console.enabled: true
