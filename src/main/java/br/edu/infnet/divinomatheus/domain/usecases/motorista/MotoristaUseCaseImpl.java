@@ -1,28 +1,29 @@
 package br.edu.infnet.divinomatheus.domain.usecases.motorista;
 
 import br.edu.infnet.divinomatheus.domain.entities.Motorista;
+import br.edu.infnet.divinomatheus.domain.interfaces.MotoristaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class MotoristaUseCaseImpl implements MotoristaUseCase {
-    private final Map<String, Motorista> motoristas = new HashMap<String, Motorista>();
+    @Autowired
+    private MotoristaRepository motoristaRepository;
 
     @Override
     public void cadastra(Motorista motorista) {
-        motoristas.put(motorista.getCpf(), motorista);
+        motoristaRepository.save(motorista);
     }
 
     @Override
-    public Motorista buscaPorCpf(String cpf) {
-        return motoristas.get(cpf);
+    public Motorista obterPorCpf(String cpf) {
+        return motoristaRepository.findByCpf(cpf);
     }
 
     @Override
-    public List<Motorista> listaMotoristas() {
-        return motoristas.values().stream().toList();
+    public List<Motorista> obterLista() {
+        return motoristaRepository.findAll();
     }
 }

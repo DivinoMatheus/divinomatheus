@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface MotoristaUseCase {
     public void cadastra(Motorista motorista);
-    public Motorista buscaPorCpf(String cpf);
-    public List<Motorista> listaMotoristas();
+    public Motorista obterPorCpf(String cpf);
+    public List<Motorista> obterLista();
 }

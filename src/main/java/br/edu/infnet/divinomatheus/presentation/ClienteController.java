@@ -19,4 +19,14 @@ public class ClienteController {
     public void cadastraCliente(@RequestBody Cliente cliente) {
         clienteUseCase.cadastra(cliente);
     }
+
+    @GetMapping("/{cpf}")
+    public Cliente buscaClientePorCpf(@PathVariable String cpf) {
+        return this.clienteUseCase.obterPorCpf(cpf);
+    }
+
+    @GetMapping("/lista")
+    public List<Cliente> listaClientes() {
+        return clienteUseCase.obterLista();
+    }
 }

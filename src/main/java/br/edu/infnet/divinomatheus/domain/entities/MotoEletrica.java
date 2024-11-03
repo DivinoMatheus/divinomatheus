@@ -5,8 +5,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-// @Entity
-// @Table(name = "motos_eletricas")
+@Entity
+@Table(name = "motos_eletricas")
 @Getter
 @Setter
 public class MotoEletrica extends Moto {

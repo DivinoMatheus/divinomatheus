@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface ClienteUseCase {
     public void cadastra(Cliente cliente);
+
+    public Cliente obterPorCpf(String cpf);
+
+    public List<Cliente> obterLista();
 }

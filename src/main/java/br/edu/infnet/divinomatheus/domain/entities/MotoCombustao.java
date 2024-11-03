@@ -5,10 +5,10 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-// @Entity
-// @Table(name = "motos_combustao")
+@Entity
+@Table(name = "motos_combustao")
 @Getter
 @Setter
-public class MotoACombustao extends Moto {
+public class MotoCombustao extends Moto {
     private int tamanhoDoTanqueLitros;
 }

@@ -1,4 +1,4 @@
 C;86145294060;linustorvalds@gmail.com;Linus;Torvalds;61986695587;01/01/1998
 C;51948403064;johnvonneumann@gmail.com;John Von;Neumann;34973258819;01/01/1969
-M;73338869800;marcotuliovalente@gmail.com;Marco Tulio;Valente;67981553195;01/01/1945
-M;17044740006;robertmartin@gmail.com;Robert;Martin;85921678239;01/01/1955
+M;73338869800;marcotuliovalente@gmail.com;Marco Tulio;Valente;67981553195;01/01/1945;true;CKT-0405
+M;17044740006;robertmartin@gmail.com;Robert;Martin;85921678239;01/01/1955;true;TRC-0945
