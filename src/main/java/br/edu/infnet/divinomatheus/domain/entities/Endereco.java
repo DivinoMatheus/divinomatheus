@@ -2,10 +2,12 @@ package br.edu.infnet.divinomatheus.domain.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.UuidGenerator;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "enderecos")
@@ -13,7 +15,6 @@ import org.hibernate.annotations.UuidGenerator;
 @Getter
 public class Endereco {
     @Id
-    @UuidGenerator(style = UuidGenerator.Style.AUTO)
     private String id;
     private String cep;
     private String bairro;
@@ -21,4 +22,11 @@ public class Endereco {
     private String estado;
     private String complemento;
     private int numero;
+
+    @PrePersist
+    void onCreate() {
+        if (this.getId() == null) {
+            this.setId(String.valueOf(UUID.randomUUID()));
+        }
+    }
 }
