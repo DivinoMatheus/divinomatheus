@@ -11,10 +11,19 @@ public class Loader implements ApplicationRunner {
     private UsuariosLoader usuariosLoader;
     @Autowired
     private MotosLoader motosLoader;
+    @Autowired
+    private EnderecosLoader enderecosLoader;
+    @Autowired
+    private PacotesLoader pacotesLoader;
+    @Autowired
+    private EntregasLoader entregasLoader;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         motosLoader.run();
         usuariosLoader.run();
+        enderecosLoader.run();
+        pacotesLoader.run();
+        entregasLoader.run();
     }
 }
