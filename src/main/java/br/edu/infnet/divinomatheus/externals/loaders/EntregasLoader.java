@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 @Component
 public class EntregasLoader {
@@ -43,12 +45,17 @@ public class EntregasLoader {
 
             var entrega = new Entrega();
 
+            var dateFormatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            dateFormatter.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
+            
             entrega.setPacote(pacote);
             entrega.setEnderecoOrigem(enderecoOrigem);
             entrega.setEnderecoDestino(enderecoDestino);
             entrega.setPrecoTotal(Integer.parseInt(campos[3]));
             entrega.setPrecoLiquido(Integer.parseInt(campos[4]));
             entrega.setTaxaDeServico(Integer.parseInt(campos[5]));
+            entrega.setEnviadoAs(dateFormatter.parse(campos[6]));
+            entrega.setRecebidoAs(dateFormatter.parse(campos[7]));
             entrega.setDestinatario(destinatario);
             entrega.setRemetente(remetente);
 

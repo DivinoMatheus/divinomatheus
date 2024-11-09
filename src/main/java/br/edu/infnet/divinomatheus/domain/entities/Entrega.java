@@ -1,14 +1,12 @@
 package br.edu.infnet.divinomatheus.domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "entregas")
@@ -34,7 +32,6 @@ public class Entrega {
     private float precoTotal;
     private float precoLiquido;
     private float taxaDeServico;
-    private int minutosEstimados;
     private Date enviadoAs;
     private Date recebidoAs;
 

@@ -32,7 +32,7 @@ public class UsuariosLoader {
 
             String[] campos = linha.split(";");
             String tipo = campos[0].toUpperCase();
-            var sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+            var dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
 
             switch(tipo) {
                 case "C":
@@ -42,7 +42,7 @@ public class UsuariosLoader {
                     cliente.setNome(campos[3]);
                     cliente.setSobrenome(campos[4]);
                     cliente.setTelefone(campos[5]);
-                    cliente.setDataDeNascimento(sourceFormat.parse(campos[6]));
+                    cliente.setDataDeNascimento(dateFormatter.parse(campos[6]));
 
                     clienteUseCase.cadastra(cliente);
 
@@ -55,7 +55,7 @@ public class UsuariosLoader {
                     motorista.setNome(campos[3]);
                     motorista.setSobrenome(campos[4]);
                     motorista.setTelefone(campos[5]);
-                    motorista.setDataDeNascimento(sourceFormat.parse(campos[6]));
+                    motorista.setDataDeNascimento(dateFormatter.parse(campos[6]));
                     motorista.setTemBauDeEntrega(Boolean.parseBoolean(campos[7]));
 
                     Moto moto = motoUseCase.obterPorPlaca(campos[8]);
