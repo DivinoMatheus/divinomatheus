@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "entregas")
@@ -22,11 +23,11 @@ public class Entrega {
     @JoinColumn(name = "id_pacote")
     private Pacote pacote;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "id_origem")
     private Endereco enderecoOrigem;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "id_destino")
     private Endereco enderecoDestino;
 
