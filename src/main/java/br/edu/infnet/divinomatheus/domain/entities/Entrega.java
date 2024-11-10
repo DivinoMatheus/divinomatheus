@@ -1,6 +1,5 @@
 package br.edu.infnet.divinomatheus.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
@@ -40,11 +39,9 @@ public class Entrega {
 
     @ManyToOne
     @JoinColumn(name = "remetente_id")
-    @JsonBackReference
     private Cliente remetente;
 
     @ManyToOne
     @JoinColumn(name = "destinatario_id")
-    @JsonBackReference
     private Cliente destinatario;
 }

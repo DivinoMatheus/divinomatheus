@@ -1,7 +1,5 @@
 package br.edu.infnet.divinomatheus.domain.usecases.entrega;
 
-import br.edu.infnet.divinomatheus.domain.EnderecoAdapter;
-import br.edu.infnet.divinomatheus.domain.entities.Endereco;
 import br.edu.infnet.divinomatheus.domain.entities.Entrega;
 import br.edu.infnet.divinomatheus.domain.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;

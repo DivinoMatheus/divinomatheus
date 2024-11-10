@@ -13,7 +13,7 @@ public class EntregaController {
     @Autowired
     private EntregaUseCase entregaUseCase;
 
-    @PostMapping("/cadastrar")
+    @PostMapping(value = "/cadastrar", consumes = {"application/json"})
     public void cadastraEntrega(@RequestBody Entrega entrega) {
         entregaUseCase.cadastra(entrega);
     }

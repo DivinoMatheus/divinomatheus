@@ -14,11 +14,11 @@ import java.util.List;
 public class Cliente extends Usuario {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "remetente_id")
-    @JsonManagedReference
+    // @JsonManagedReference
     private List<Entrega> envios;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "destinatario_id")
-    @JsonManagedReference
+    // @JsonManagedReference
     private List<Entrega> recebimentos;
 }
