@@ -23,7 +23,7 @@ public class MotoristaController {
         return this.motoristaUseCase.obterPorCpf(cpf);
     }
 
-    @GetMapping("/lista")
+    @GetMapping("/listar")
     public List<Motorista> listaMotoristas() {
         return motoristaUseCase.obterLista();
     }

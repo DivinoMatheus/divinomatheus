@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
+import java.util.UUID;
 
 
 @Entity
@@ -23,4 +24,11 @@ public abstract class Usuario {
     private String email;
     private String telefone;
     private Date dataDeNascimento;
+
+    @PrePersist
+    void onCreate() {
+        if (this.getId() == null) {
+            this.setId(String.valueOf(UUID.randomUUID()));
+        }
+    }
 }

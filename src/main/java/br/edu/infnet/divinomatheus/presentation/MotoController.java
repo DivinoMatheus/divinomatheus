@@ -15,7 +15,7 @@ public class MotoController {
     @Autowired
     private MotoUseCase motoUseCase;
 
-    @GetMapping("/lista")
+    @GetMapping("/listar")
     List<Moto> listaMotos() {
         return this.motoUseCase.obterLista();
     }

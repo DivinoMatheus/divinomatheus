@@ -25,7 +25,7 @@ public class ClienteController {
         return this.clienteUseCase.obterPorCpf(cpf);
     }
 
-    @GetMapping("/lista")
+    @GetMapping("/listar")
     public List<Cliente> listaClientes() {
         return clienteUseCase.obterLista();
     }

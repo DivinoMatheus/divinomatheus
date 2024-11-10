@@ -40,8 +40,8 @@ public class EntregasLoader {
             var pacote = pacoteUseCase.obterPorId(campos[0]);
             var enderecoDestino = enderecoUseCase.obterPorId(campos[1]);
             var enderecoOrigem = enderecoUseCase.obterPorId(campos[2]);
-            var destinatario = clienteRepository.findByCpf(campos[6]);
-            var remetente = clienteRepository.findByCpf(campos[7]);
+            var destinatario = clienteRepository.findByCpf(campos[8]);
+            var remetente = clienteRepository.findByCpf(campos[9]);
 
             var entrega = new Entrega();
 

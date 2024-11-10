@@ -2,16 +2,19 @@ package br.edu.infnet.divinomatheus.domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "entregas")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Entrega {
     @Id
     @UuidGenerator(style = UuidGenerator.Style.AUTO)
