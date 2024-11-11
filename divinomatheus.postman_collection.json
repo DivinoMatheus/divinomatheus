@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "24c471ea-fcf1-42b2-bb62-bd7a8463550b",
+		"name": "divinomatheus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39631885"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Listar clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuarios/clientes/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"clientes",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"51734668121\",\r\n    \"nome\": \"João Carlos\",\r\n    \"sobrenome\": \"Medeiros\",\r\n    \"email\": \"joaocarlos@gmail.com\",\r\n    \"telefone\": \"41954876842\",\r\n    \"dataDeNascimento\": \"01/01/1992\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuarios/clientes/cadastrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"clientes",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por CPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuarios/clientes/51948403064",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"clientes",
+								"51948403064"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entregas",
+			"item": [
+				{
+					"name": "Criar entrega",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pacote\": {\n        \"conteudo\": \"Televisao\",\n        \"pesoEmKg\": 7,\n        \"largura\": 10,\n        \"comprimento\": 15,\n        \"altura\": 19\n    },\n    \"enderecoDestino\": {\n        \"cep\": \"70040010\",\n        \"numero\": 3\n    },\n    \"enderecoOrigem\": {\n        \"cep\": \"70070120\",\n        \"numero\": 3\n    },\n    \"precoTotal\": 5000,\n    \"precoLiquido\": 2500,\n    \"taxaDeServico\": 10,\n    \"remetenteCpf\": \"51948403064\",\n    \"destinatarioCpf\": \"86145294060\",\n    \"motoristaCpf\": \"17044740006\",\n    \"enviadoAs\": \"2024-11-10T15:02:29.337Z\",\n    \"recebidoAs\": \"2024-11-10T18:02:29.337Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/entregas/cadastrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"entregas",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista entregas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/entregas/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"entregas",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por preço",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/entregas/filtrarPorPrecoTotal?min=10&max=300",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"entregas",
+								"filtrarPorPrecoTotal"
+							],
+							"query": [
+								{
+									"key": "min",
+									"value": "10"
+								},
+								{
+									"key": "max",
+									"value": "300"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Motoristas",
+			"item": [
+				{
+					"name": "Listar motoristas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuarios/motoristas/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"motoristas",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar motorista com moto elétrica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"15388858405\",\r\n    \"nome\": \"Caio Cesar\",\r\n    \"sobrenome\": \"Oliveira\",\r\n    \"email\": \"caiocesar@gmail.com\",\r\n    \"telefone\": \"67981555215\",\r\n    \"dataDeNascimento\": \"01/01/1978\",\r\n    \"temBauDeEntrega\": true,\r\n    \"motoEletrica\": {\r\n        \"modelo\": \"Honda\",\r\n        \"ano\": 2005,\r\n        \"placa\": \"GON-5526\",\r\n        \"bateriaMaximaAh\": 5500\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuarios/motoristas/cadastrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"motoristas",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar motorista com moto a combustão",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"15388858405\",\r\n    \"nome\": \"Caio Cesar\",\r\n    \"sobrenome\": \"Oliveira\",\r\n    \"email\": \"caiocesar@gmail.com\",\r\n    \"telefone\": \"67981555215\",\r\n    \"dataDeNascimento\": \"01/01/1978\",\r\n    \"temBauDeEntrega\": true,\r\n    \"motoCombustao\": {\r\n        \"modelo\": \"Honda\",\r\n        \"ano\": 2010,\r\n        \"placa\": \"TOC-6709\",\r\n        \"tamanhoDoTanqueLitros\": 45\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuarios/motoristas/cadastrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"motoristas",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por CPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuarios/motoristas/73338869800",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"motoristas",
+								"73338869800"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Listar usuários",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuarios/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Motos",
+			"item": [
+				{
+					"name": "Listar motos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/motos/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"motos",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar motos elétricas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/motos/eletricas/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"motos",
+								"eletricas",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar motos a combustão",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/motos/combustao/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"motos",
+								"combustao",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pacotes",
+			"item": [
+				{
+					"name": "Listar pacotes transportados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pacotes/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacotes",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
