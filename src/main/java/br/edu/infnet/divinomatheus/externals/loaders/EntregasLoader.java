@@ -2,6 +2,7 @@ package br.edu.infnet.divinomatheus.externals.loaders;
 
 import br.edu.infnet.divinomatheus.domain.entities.Entrega;
 import br.edu.infnet.divinomatheus.domain.interfaces.ClienteRepository;
+import br.edu.infnet.divinomatheus.domain.interfaces.MotoristaRepository;
 import br.edu.infnet.divinomatheus.domain.usecases.endereco.EnderecoUseCase;
 import br.edu.infnet.divinomatheus.domain.usecases.entrega.EntregaUseCase;
 import br.edu.infnet.divinomatheus.domain.usecases.pacote.PacoteUseCase;
@@ -23,6 +24,9 @@ public class EntregasLoader {
     private PacoteUseCase pacoteUseCase;
     @Autowired
     private ClienteRepository clienteRepository;
+    @Autowired
+    private MotoristaRepository motoristaRepository;
+
 
     public void run() throws Exception {
         FileReader fileReader = new FileReader("files/entregas.txt");
@@ -40,8 +44,6 @@ public class EntregasLoader {
             var pacote = pacoteUseCase.obterPorId(campos[0]);
             var enderecoDestino = enderecoUseCase.obterPorId(campos[1]);
             var enderecoOrigem = enderecoUseCase.obterPorId(campos[2]);
-            var destinatario = clienteRepository.findByCpf(campos[8]);
-            var remetente = clienteRepository.findByCpf(campos[9]);
 
             var entrega = new Entrega();
 
@@ -56,8 +58,10 @@ public class EntregasLoader {
             entrega.setTaxaDeServico(Integer.parseInt(campos[5]));
             entrega.setEnviadoAs(dateFormatter.parse(campos[6]));
             entrega.setRecebidoAs(dateFormatter.parse(campos[7]));
-            entrega.setDestinatario(destinatario);
-            entrega.setRemetente(remetente);
+
+            entrega.setDestinatarioCpf(campos[8]);
+            entrega.setRemetenteCpf(campos[9]);
+            entrega.setMotoristaCpf(campos[10]);
 
             entregaUseCase.cadastra(entrega);
 

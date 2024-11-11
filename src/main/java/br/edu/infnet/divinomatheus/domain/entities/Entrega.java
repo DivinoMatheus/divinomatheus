@@ -1,6 +1,9 @@
 package br.edu.infnet.divinomatheus.domain.entities;
 
+import com.fasterxml.jackson.annotation.*;
+import io.swagger.v3.core.util.Json;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
@@ -11,7 +14,6 @@ import java.util.UUID;
 @Table(name = "entregas")
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Entrega {
@@ -39,9 +41,30 @@ public class Entrega {
 
     @ManyToOne
     @JoinColumn(name = "remetente_id")
+    @JsonIgnore
     private Cliente remetente;
 
     @ManyToOne
     @JoinColumn(name = "destinatario_id")
+    @JsonIgnore
     private Cliente destinatario;
+
+    @ManyToOne
+    @JoinColumn(name = "motorista_id")
+    @JsonIgnore
+    private Motorista motorista;
+
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String destinatarioCpf;
+
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @NotNull
+    private String remetenteCpf;
+
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @NotNull
+    private String motoristaCpf;
 }

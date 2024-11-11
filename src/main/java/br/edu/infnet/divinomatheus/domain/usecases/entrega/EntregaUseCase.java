@@ -7,4 +7,5 @@ import java.util.List;
 public interface EntregaUseCase {
     void cadastra(Entrega entrega);
     List<Entrega> obterLista();
+    List<Entrega> obterListaPorPrecoTotal(Long min, Long max);
 }

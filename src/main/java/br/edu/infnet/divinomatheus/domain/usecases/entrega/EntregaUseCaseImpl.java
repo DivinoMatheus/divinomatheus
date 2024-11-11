@@ -1,6 +1,7 @@
 package br.edu.infnet.divinomatheus.domain.usecases.entrega;
 
 import br.edu.infnet.divinomatheus.domain.entities.Entrega;
+import br.edu.infnet.divinomatheus.domain.entities.Motorista;
 import br.edu.infnet.divinomatheus.domain.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,14 +23,18 @@ public class EntregaUseCaseImpl implements EntregaUseCase {
     private ClienteRepository clienteRepository;
 
     @Autowired
+    private MotoristaRepository motoristaRepository;
+
+    @Autowired
     private CepClient cepClient;
 
     public void cadastra(Entrega entrega) {
         var enderecoDestino = entrega.getEnderecoDestino();
         var enderecoOrigem = entrega.getEnderecoOrigem();
         var pacote = entrega.getPacote();
-        var destinatario = entrega.getDestinatario();
-        var remetente = entrega.getRemetente();
+        var motoristaCpf = entrega.getMotoristaCpf();
+        var destinatarioCpf = entrega.getDestinatarioCpf();
+        var remetenteCpf = entrega.getRemetenteCpf();
 
         if (entrega.getEnderecoDestino().getId() == null) {
             var cep = entrega.getEnderecoDestino().getCep();
@@ -59,14 +64,19 @@ public class EntregaUseCaseImpl implements EntregaUseCase {
             pacoteRepository.save(pacote);
         }
 
-        if (destinatario.getId() == null) {
-            var clientePorCpf = clienteRepository.findByCpf(destinatario.getCpf());
-            destinatario.setId(clientePorCpf.getId());
+        if (destinatarioCpf != null) {
+            var clientePorCpf = clienteRepository.findByCpf(destinatarioCpf);
+            entrega.setDestinatario(clientePorCpf);
         }
 
-        if (remetente.getId() == null) {
-            var clientePorCpf = clienteRepository.findByCpf(remetente.getCpf());
-            remetente.setId(clientePorCpf.getId());
+        if (remetenteCpf != null) {
+            var clientePorCpf = clienteRepository.findByCpf(remetenteCpf);
+            entrega.setRemetente(clientePorCpf);
+        }
+
+        if (motoristaCpf != null) {
+            var motoristaPorCpf = motoristaRepository.findByCpf(motoristaCpf);
+            entrega.setMotorista(motoristaPorCpf);
         }
 
         entregaRepository.save(entrega);
@@ -75,5 +85,9 @@ public class EntregaUseCaseImpl implements EntregaUseCase {
     @Override
     public List<Entrega> obterLista() {
         return entregaRepository.findAll();
+    }
+
+    public List<Entrega> obterListaPorPrecoTotal(Long min, Long max) {
+        return entregaRepository.findByPrecoTotalBetween(min, max);
     }
 }

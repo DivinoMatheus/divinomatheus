@@ -5,6 +5,8 @@ import br.edu.infnet.divinomatheus.domain.interfaces.PacoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PacoteUseCaseImpl implements PacoteUseCase {
     @Autowired
@@ -16,5 +18,9 @@ public class PacoteUseCaseImpl implements PacoteUseCase {
 
     public Pacote obterPorId(String id) {
         return pacoteRepository.findById(id).get();
+    }
+
+    public List<Pacote> obterLista() {
+        return pacoteRepository.findAll();
     }
 }
