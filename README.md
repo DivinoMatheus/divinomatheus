@@ -1,4 +1,4 @@
-## Displicina - Arquitetura Java - Pós Graduação
+## Disciplina - Arquitetura Java - Pós Graduação
 
 
 ## Como rodar o projeto?
