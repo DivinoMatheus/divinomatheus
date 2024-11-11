@@ -1,5 +1,6 @@
 ## Disciplina - Arquitetura Java - Pós Graduação
 
+A proposta do projeto é simular um serviço que serve como intermediário no processo de entrega de produtos entre duas pessoas. Possibilitando que um cliente encontre um motorista que transporte um pacote / produto para outro cliente.
 
 ## Como rodar o projeto?
 - Execute o `DivinoMatheusApplication.java`
